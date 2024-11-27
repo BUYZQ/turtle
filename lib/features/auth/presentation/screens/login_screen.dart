@@ -70,13 +70,16 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(height: 10),
             InkWell(
               onTap: widget.toggleScreen,
-              child: Text(
-                'Регистрация',
-                style: TextStyle(
-                  fontFamily: 'Champagne',
-                  fontSize: 19,
-                  fontWeight: FontWeight.bold,
-                  color: theme.colorScheme.secondary,
+              child: SizedBox(
+                height: 50,
+                child: Text(
+                  'Регистрация',
+                  style: TextStyle(
+                    fontFamily: 'Champagne',
+                    fontSize: 19,
+                    fontWeight: FontWeight.bold,
+                    color: theme.colorScheme.secondary,
+                  ),
                 ),
               ),
             ),

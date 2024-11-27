@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/features/auth/data/auth_repository.dart';
+import 'package:myapp/features/auth/presentation/screens/auth_screen.dart';
 import 'package:myapp/features/auth/presentation/screens/login_screen.dart';
 import 'package:myapp/features/home/presentation/widgets/my_app_bar.dart';
 import 'package:myapp/features/settings/presentation/widgets/settings_button.dart';
@@ -84,7 +85,7 @@ class SettingsScreen extends StatelessWidget {
                 onPressed: () {
                   AuthRepository().signOut();
                   Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => const LoginScreen()),
+                    MaterialPageRoute(builder: (context) => const AuthScreen()),
                   );
                 },
                 child: const Text('Выйти'),
