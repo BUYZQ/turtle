@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/features/home/presentation/screens/home_screen.dart';
 import 'package:myapp/features/home/presentation/widgets/my_app_bar.dart';
 
 class CalendarList extends StatelessWidget {
@@ -23,7 +24,12 @@ class CalendarList extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 50),
-              const MyAppBar(title: 'Календарь'),
+              MyAppBar(
+                title: 'Календарь',
+                navigate: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen(index: 0)));
+                },
+              ),
               const SizedBox(height: 20),
               // Сетка для отображения месяцев с ноября 2024 года
               Expanded(
@@ -46,20 +52,25 @@ class CalendarList extends StatelessWidget {
                       ..addAll(List.generate(daysInMonth, (index) => index + 1));
 
                     return Card(
-                      color: Theme.of(context).colorScheme.surface,
+                      color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
                       margin: const EdgeInsets.symmetric(vertical: 8),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              '$monthName $currentYear',
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Theme.of(context).colorScheme.primary,
-                              ),
+                            Row(
+                              children: [
+                                Text(
+                                  '$monthName',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    color: Theme.of(context).colorScheme.primary,
+                                  ),
+                                ),
+                                Image.asset('assets/home/turtle_mini.png'),
+                              ],
                             ),
                             const SizedBox(height: 10),
                             // Календарь для текущего месяца

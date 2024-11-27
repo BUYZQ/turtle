@@ -7,7 +7,9 @@ import 'package:myapp/features/profile/presentation/screens/profile_screen.dart'
 import 'package:myapp/features/settings/presentation/screens/settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final int? index;
+
+  const HomeScreen({super.key, this.index});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -23,6 +25,12 @@ class _HomeScreenState extends State<HomeScreen> {
     const ProfileScreen(),
     const SearchScreen(), // Search
   ];
+
+  @override
+  void initState() {
+    _currentIndex = widget.index ?? 4;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -3,6 +3,8 @@ import 'package:myapp/features/auth/data/auth_repository.dart';
 import 'package:myapp/features/auth/presentation/screens/login_screen.dart';
 import 'package:myapp/features/home/presentation/widgets/my_app_bar.dart';
 import 'package:myapp/features/settings/presentation/widgets/settings_button.dart';
+import 'package:myapp/theme/toggle_theme.dart';
+import 'package:provider/provider.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -33,7 +35,7 @@ class SettingsScreen extends StatelessWidget {
               SettingsButton(
                 title: 'Тема',
                 image: Image.asset('assets/settings/theme.png'),
-                onTap: () {},
+                onTap: Provider.of<ToggleTheme>(context).toggleTheme,
               ),
               SettingsButton(
                 title: 'Язык',

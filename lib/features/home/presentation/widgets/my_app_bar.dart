@@ -3,10 +3,12 @@ import 'package:myapp/features/settings/presentation/screens/settings_screen.dar
 
 class MyAppBar extends StatelessWidget {
   final String title;
+  final Function()? navigate;
 
   const MyAppBar({
     super.key,
     required this.title,
+    this.navigate,
   });
 
   @override
@@ -15,9 +17,9 @@ class MyAppBar extends StatelessWidget {
     return Row(
       children: [
         IconButton(
-          onPressed: () {
-            if(title == 'Настройки' || title == 'Курение') Navigator.pop(context);
-          },
+          onPressed: title == 'Настройки' || title == 'Курение' ?  () {
+            Navigator.pop(context);
+          } : navigate,
           icon: Image.asset('assets/home/back.png'),
         ),
         const Spacer(),
