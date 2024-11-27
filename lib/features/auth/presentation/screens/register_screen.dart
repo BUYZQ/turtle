@@ -20,7 +20,6 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
 
   final _nameController = TextEditingController();
-  final _surnameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
@@ -104,12 +103,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   Future<void> _signUp() async {
     final name = _nameController.text;
-    final surname = _surnameController.text;
     final email = _emailController.text;
     final password = _passwordController.text;
     final confirmPassword = _confirmPasswordController.text;
 
-    if(name.isEmpty || surname.isEmpty || email.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
+    if(name.isEmpty || email.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Заполните все поля')),
       );
@@ -122,7 +120,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       );
     }
 
-    User? data = await _authRepository.signUpWithEmailAndPassword(name, surname, email, password);
+    User? data = await _authRepository.signUpWithEmailAndPassword(name, email, password);
 
     if(data != null) {
       Navigator.of(context).pushReplacement(

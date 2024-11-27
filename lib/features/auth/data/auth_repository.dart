@@ -8,7 +8,6 @@ class AuthRepository {
   // User register
   Future<User?> signUpWithEmailAndPassword(
     String name,
-    String surname,
     String email,
     String password,
   ) async {
@@ -18,7 +17,6 @@ class AuthRepository {
         password: password,
         data: {
           'name': name,
-          'surname': surname,
         },
       );
 
