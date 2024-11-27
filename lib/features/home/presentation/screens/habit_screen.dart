@@ -57,6 +57,18 @@ class _HabitScreenState extends State<HabitScreen> {
     return '${days.toString().padLeft(2, '0')}:${hours.toString().padLeft(2, '0')}:${minutes.toString().padLeft(2, '0')}:${remainingSeconds.toString().padLeft(2, '0')}';
   }
 
+  List<String> titles = [
+    'Стоп',
+    'Комментарий',
+    'Начало',
+  ];
+
+  List<Image> images = [
+    Image.asset('assets/home/play.png'),
+    Image.asset('assets/home/message.png'),
+    Image.asset('assets/home/pause.png'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -123,11 +135,17 @@ class _HabitScreenState extends State<HabitScreen> {
               if (_isExpanded)
                 Expanded(
                   child: ListView.builder(
-                    itemCount: 20,
+                    itemCount: images.length,
                     itemBuilder: (context, index) {
-                      return const Padding(
-                        padding: EdgeInsets.only(bottom: 30),
-                        child: SearchButton(),
+                      final image = images[index];
+                      final title = titles[index];
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 30),
+                        child: SearchButton(
+                          image: image,
+                          title: title,
+                          isNavigate: false,
+                        ),
                       );
                     },
                   ),

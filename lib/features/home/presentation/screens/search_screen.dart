@@ -14,6 +14,27 @@ class _SearchScreenState extends State<SearchScreen> {
 
   final _searchController = TextEditingController();
 
+  List<String> titles = [
+    'Курение',
+    'Алкоголь',
+    'Кофеин',
+    'Сладкое',
+    'Азартные игры',
+    'Компьютерные игры',
+    'Шопоголизм'
+  ];
+
+  List<Image> images = [
+    Image.asset('assets/search/smoking.png'),
+    Image.asset('assets/search/alcohol.png'),
+    Image.asset('assets/search/coffee.png'),
+    Image.asset('assets/search/desset.png'),
+    Image.asset('assets/search/games.png'),
+    Image.asset('assets/search/computer_games.png'),
+    Image.asset('assets/search/shop.png'),
+  ];
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,11 +66,16 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
               Expanded(
                 child: ListView.builder(
-                  itemCount: 20,
+                  itemCount: images.length,
                   itemBuilder: (context, index) {
-                    return const Padding(
-                      padding: EdgeInsets.only(bottom: 30),
-                      child: SearchButton(),
+                    final image = images[index];
+                    final title = titles[index];
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 30),
+                      child: SearchButton(
+                        image: image,
+                        title: title,
+                      ),
                     );
                   },
                 ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/features/auth/data/auth_repository.dart';
+import 'package:myapp/features/auth/presentation/screens/login_screen.dart';
 import 'package:myapp/features/home/presentation/widgets/my_app_bar.dart';
 import 'package:myapp/features/settings/presentation/widgets/settings_button.dart';
 
@@ -74,6 +76,16 @@ class SettingsScreen extends StatelessWidget {
                 title: 'Версия приложения 1.0.0',
                 image: Image.asset('assets/settings/version.png'),
                 onTap: () {},
+              ),
+              const SizedBox(height: 50),
+              ElevatedButton(
+                onPressed: () {
+                  AuthRepository().signOut();
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => const LoginScreen()),
+                  );
+                },
+                child: const Text('Выйти'),
               ),
             ],
           ),

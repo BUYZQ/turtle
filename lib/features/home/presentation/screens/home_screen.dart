@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/features/calendar/presentation/screens/calendar_list.dart';
+import 'package:myapp/features/chat/presentation/screens/chat_list_screen.dart';
 import 'package:myapp/features/home/presentation/screens/search_screen.dart';
 import 'package:myapp/features/home/presentation/screens/statistics_screen.dart';
 import 'package:myapp/features/profile/presentation/screens/profile_screen.dart';
@@ -18,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> screens = [
     const StatisticsScreen(),
     const CalendarList(),
-    const Scaffold(),
+    const ChatListScreen(),
     const ProfileScreen(),
     const SearchScreen(), // Search
   ];
