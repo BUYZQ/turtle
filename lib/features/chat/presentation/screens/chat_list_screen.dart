@@ -124,4 +124,5 @@ class ChatListScreen extends StatelessWidget {
       ),
     );
   }
+
 }
